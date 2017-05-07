@@ -1,9 +1,15 @@
-import React from 'react';
+import React, {Component}  from 'react';
 import ReactDOM from 'react-dom';
 
-class Apple extends React.Component{
+class Apple extends Component{
 	render(){
-		return <h1>This is an apple.</h1>;
+		return (
+			<div className="content">
+				<h1>Welcom React and Sass</h1>
+				<h2>ssssdddssdssssss</h2>
+				<p>1651561651595494949949</p>
+			</div>
+		)
 	}
 }
 
