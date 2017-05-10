@@ -1,16 +1,23 @@
 import React, {Component}  from 'react';
 import ReactDOM from 'react-dom';
 
-class Apple extends Component{
+class App extends Component{
+	items() {
+		return (
+			<div>
+				<h1>Welcome</h1>
+				<p></p>
+			</div>
+		)
+		
+	}
 	render(){
 		return (
 			<div className="content">
-				<h1>Welcom React and Sass</h1>
-				<h2>ssssdddssdssssss</h2>
-				<p>1651561651595494949949</p>
+				{this.items()}
 			</div>
 		)
 	}
 }
 
-ReactDOM.render(<Apple />, document.querySelector('#container'));
+ReactDOM.render(<App />, document.querySelector('#container'));
