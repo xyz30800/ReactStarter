@@ -1,4 +1,6 @@
-@import "compass/reset";
+@import "import/reset";
+@import "import/mixin";
+@import "import/screen";
 
 .content {
     h2 {
@@ -9,5 +11,7 @@
     }
     h1 {
     	font-size: 25px;
+    	color: green;
+    	@include test-border();
     }
 }
