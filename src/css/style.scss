@@ -1,18 +1,14 @@
-@import "imports/reset";
+@import "node_modules/compass-sass-mixins/lib/compass";
 @import "imports/extra_reset";
 @import "imports/mixin";
 @import "imports/screen";
 
+@include global-reset();
+
 .content {
-    h2 {
-        color: green;
-    }
-    h3 {
-    	font-size: 50px;
-    }
     h1 {
     	font-size: 25px;
     	color: green;
-    	@include test-border();
+        @include opacity(.2);
     }
 }

@@ -10,7 +10,7 @@ module.exports = {
     filename: 'bundle.js'
   },
   resolve: {
-    extensions: ['*', '.js', '.jsx', '.scss']
+    extensions: ['*', '.js', '.jsx', '.scss', '.html']
   },
   module: {
     rules: [
@@ -21,6 +21,13 @@ module.exports = {
         query: {
            presets: ['es2015', 'react']
         }
+      },
+      {
+        exclude: /node_modules/,
+        test: /\.html$/,
+        use: [
+          { loader: 'html-loader' }
+        ]
       },
       {
         exclude: /node_modules/,

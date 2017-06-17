@@ -1,3 +1,4 @@
+/* loading React with jsx */
 import React, {Component}  from 'react';
 import ReactDOM from 'react-dom';
 
@@ -14,3 +15,13 @@ class App extends Component{
 }
 
 ReactDOM.render(<App />, document.querySelector('#container'));
+
+/* loading html */
+// import html from './container';
+// import './css/style';
+
+// function initLoadHtml() {
+// 	return html;
+// }
+
+// document.querySelector('#container').insertAdjacentHTML( 'beforeend', initLoadHtml() );
