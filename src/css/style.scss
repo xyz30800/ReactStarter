@@ -1,14 +1,23 @@
 @import "node_modules/compass-sass-mixins/lib/compass";
+// https://github.com/askucher/compass-sass-mixins
 @import "imports/extra_reset";
 @import "imports/mixin";
 @import "imports/screen";
 
 @include global-reset();
 
+/* 範例 */
 .content {
+	background-image: url(../img/banner.jpg);
+	height: 250px;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
     h1 {
-    	font-size: 25px;
-    	color: green;
-        @include opacity(.2);
+    	font-size: 50px;
+    	color: red;
+    	font-weight: bold;
+        @include opacity(.5);
     }
 }
+/* 範例 */

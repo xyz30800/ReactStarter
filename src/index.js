@@ -1,26 +1,24 @@
 /* loading React with jsx */
-import React, {Component}  from 'react';
-import ReactDOM from 'react-dom';
+// import React, {Component}  from 'react';
+// import ReactDOM from 'react-dom';
 
-import Content from './components/content';
-import './css/style';
-
-class App extends Component{
-	render(){
-		return (
-			<Content />
-		)
-	}
-}
-
-ReactDOM.render(<App />, document.querySelector('#container'));
-
-/* loading html */
-// import html from './container';
+// import Content from './components/content';
 // import './css/style';
 
-// function initLoadHtml() {
-// 	return html;
+// class App extends Component{
+// 	render(){
+// 		return (
+// 			<Content />
+// 		)
+// 	}
 // }
 
-// document.querySelector('#container').insertAdjacentHTML( 'beforeend', initLoadHtml() );
+// ReactDOM.render(<App />, document.querySelector('#container'));
+
+/* loading pure html */
+import html from './container';
+import './css/style';
+
+function initLoadHtml() { return html }
+
+document.querySelector('#container').insertAdjacentHTML( 'beforeend', initLoadHtml() );
