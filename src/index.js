@@ -22,3 +22,5 @@ import './css/style';
 function initLoadHtml() { return html }
 
 document.querySelector('#container').insertAdjacentHTML( 'beforeend', initLoadHtml() );
+
+/* Customize JS code - Start */
