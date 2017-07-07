@@ -1,14 +1,18 @@
 const path = require('path');
+const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+const VENDER_LIBS = ['react', 'react-dom'];
 
 module.exports = {
   entry: {
-    app: ["./src/index.js"]
+    bundle: './src/index.js',
+    vender: VENDER_LIBS
   },
   output: {
-    path: __dirname,
-    publicPath: '/',
-    filename: 'bundle.js'
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].[chunkhash].js'
   },
   resolve: {
     extensions: ['*', '.js', '.jsx', '.scss', '.html']
@@ -24,7 +28,7 @@ module.exports = {
         }
       },
       {
-        exclude: /node_modules/,
+        exclude: [ /node_modules/, /index\.html$/],
         test: /\.html$/,
         use: [
           { loader: 'html-loader' }
@@ -32,40 +36,49 @@ module.exports = {
       },
       {
         exclude: /node_modules/,
-        test: /\.(svg|png|jpg)$/,
-        use: [
-          { loader: 'file-loader' }
-        ]
-      },
-      {
-        exclude: /node_modules/,
         test: /\.scss$/,
-        // use: ExtractTextPlugin.extract({
-        //   fallback: 'style-loader',
-        //   use: 'css-loader!sass-loader'
-        // })
-        use: [{ 
-            loader: 'style-loader' 
-          }, { 
-            loader: 'css-loader',
-            options: { 
-              minimize: true 
-            }
-          }, { 
-            loader: 'sass-loader' 
-          }
-        ] 
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: 'css-loader!sass-loader'
+        })
+        // use: [{ 
+        //     loader: 'style-loader' 
+        //   }, { 
+        //     loader: 'css-loader',
+        //     options: { 
+        //       minimize: true 
+        //     }
+        //   }, { 
+        //     loader: 'sass-loader' 
+        //   }
+        // ] 
       },
       {
         exclude: /node_modules/,
-        test: /\.json$/,
+        test: /\.(jpe?g|png|gif|svg)$/,
         use: [
-          { loader: 'json-loader' }
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192
+            }
+          }
         ]
       }
     ]
   },
   plugins: [
-    new ExtractTextPlugin('style.css')
+    new ExtractTextPlugin('style.css'),
+    new webpack.optimize.CommonsChunkPlugin({
+      names: ['vender', 'manifest']
+    }),
+    new HtmlWebpackPlugin({
+      template: 'src/index.html',
+      favicon: 'src/img/web-icon.png', // Add Web Icon
+      hash: true,
+    }),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+    })
   ]
 };
