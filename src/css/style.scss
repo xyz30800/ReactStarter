@@ -8,13 +8,13 @@
 
 /* 範例 */
 .content {
-	background-image: url(../img/banner.jpg);
+	background-image: url(../img/note.jpg);
 	height: 300px;
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
     h1 {
-    	font-size: 55px;
+    	font-size: 40px;
     	color: red;
     	font-weight: bold;
         @include opacity(.5);

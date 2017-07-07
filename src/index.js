@@ -1,4 +1,5 @@
-/* loading React with jsx */
+/*** loading React with jsx - Start ***/
+
 import React, {Component}  from 'react';
 import ReactDOM from 'react-dom';
 
@@ -15,7 +16,10 @@ class App extends Component{
 
 ReactDOM.render(<App />, document.querySelector('#container'));
 
-/* loading pure html */
+/*** loading React with jsx - End ***/
+
+/*** loading pure html - Start ***/
+
 // import html from './container';
 // import './css/style';
 
@@ -23,4 +27,6 @@ ReactDOM.render(<App />, document.querySelector('#container'));
 
 // document.querySelector('#container').insertAdjacentHTML( 'beforeend', initLoadHtml() );
 
-/* Customize JS code - Start */
+/*** loading pure html - End ***/
+
+/*** Customize JS code - Start ***/
