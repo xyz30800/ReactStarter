@@ -49,22 +49,22 @@ module.exports = {
           {
             loader: 'url-loader',
             options: {
-              limit: 8192
+              limit: 10240
             }
-          }
+          },
+          'image-webpack-loader'
         ]
       }
     ]
   },
   plugins: [
-    new ExtractTextPlugin('style.css'),
+    new ExtractTextPlugin('style.[contenthash].css'),
     new webpack.optimize.CommonsChunkPlugin({
       names: ['vender', 'manifest']
     }),
     new HtmlWebpackPlugin({
       template: 'src/index.html',
       favicon: 'src/img/web-icon.png', // Add Web Icon
-      hash: true,
     }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
